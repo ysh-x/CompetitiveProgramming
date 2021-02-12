@@ -1,0 +1,13 @@
+#include<stdio.h>
+
+int main() {
+     int n;
+     printf("n is %d");
+
+     if(n%7 == 0) {
+          printf("N is divisible by 7);
+     }
+     else 
+          printf("N is not divisible by 7);
+
+}
