@@ -1,34 +1,27 @@
-//Reverse of a number
-#include<iostream>
-
-using namespace std;
-
-
-int reverse (int n) {
-    int rev = 0;
-    int dig;
+string Solution::solve(string A) {
+    vector <string> ans;
+    string temp = "";
+    string final;
+    int count = 0;
     
-    while(n > 0) {
-        dig = n % 10;
-        rev = rev * 10 + dig;
-        n = n / 10;
+    for(int i = 0; i <= A.size(); i++) {
+        if(A[i] == ' ' || A[i] == '\0') {
+            if(temp!="")
+            ans.push_back(temp);
+            temp = "";
+        }
+        else {
+                temp+= A[i];
+        }
     }
-    return rev;
-        
-}
-int main()  {
-    // YOUR CODE GOES HERE
-    // Please take input and print output to standard input/output (stdin/stdout)
-    // E.g. 'cin' for input & 'cout' for output
     
-    int inputs;
-    int number;
-    
-    cin >> inputs;
-    
-    for(int i = 0; i < inputs; i++) {
-        cin >> number;
-        cout << reverse(number) << endl;
+    for(int j = ans.size() - 1; j >= 0; j-- ) {
+        if(ans[j] == " " && ans[j+1] == " ") {
+            count++;
+        }
+        final = final +" " + ans[j];
     }
-    return 0;
+    
+    final = final.substr(count+1,final.length()-1);
+    return final;
 }
